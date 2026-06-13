@@ -1,9 +1,9 @@
 page 50100 "Employee Certifications SubP"
 {
+    AutoSplitKey = true;
+    Caption = 'Certifications';
     PageType = ListPart;
     SourceTable = "Employee Certification";
-    Caption = 'Certifications';
-    AutoSplitKey = true;
 
     layout
     {
