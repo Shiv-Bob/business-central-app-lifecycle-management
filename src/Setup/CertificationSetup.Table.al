@@ -1,7 +1,7 @@
 table 50102 "Certification Setup"
 {
-    DataClassification = CustomerContent;
     Caption = 'Certification Setup';
+    DataClassification = CustomerContent;
 
     fields
     {
@@ -44,12 +44,12 @@ table 50102 "Certification Setup"
 
     procedure GetSetup(): Record "Certification Setup"
     var
-        Setup: Record "Certification Setup";
+        CertificationSetupRec: Record "Certification Setup";
     begin
-        if not Setup.Get() then begin
-            Setup.Init();
-            Setup.Insert();
+        if not CertificationSetupRec.Get() then begin
+            CertificationSetupRec.Init();
+            CertificationSetupRec.Insert();
         end;
-        exit(Setup);
+        exit(CertificationSetupRec);
     end;
 }

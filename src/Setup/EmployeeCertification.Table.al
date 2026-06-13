@@ -1,7 +1,7 @@
 table 50101 "Employee Certification"
 {
-    DataClassification = CustomerContent;
     Caption = 'Employee Certification';
+    DataClassification = CustomerContent;
 
     fields
     {
