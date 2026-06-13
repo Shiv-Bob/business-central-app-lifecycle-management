@@ -2,16 +2,16 @@ codeunit 50105 "Check Certification Status"
 {
     trigger OnRun()
     var
-        EmployeeCertification: Record "Employee Certification";
+        EmployeeCertificationRec: Record "Employee Certification";
         TelemetryHelper: Codeunit "Telemetry Helper";
         ExpiringCount: Integer;
     begin
-        if EmployeeCertification.FindSet(true) then
+        if EmployeeCertificationRec.FindSet(true) then
             repeat
-                EmployeeCertification.UpdateStatus();
-                if EmployeeCertification.Status = EmployeeCertification.Status::"Expiring Soon" then
+                EmployeeCertificationRec.UpdateStatus();
+                if EmployeeCertificationRec.Status = EmployeeCertificationRec.Status::"Expiring Soon" then
                     ExpiringCount += 1;
-            until EmployeeCertification.Next() = 0;
+            until EmployeeCertificationRec.Next() = 0;
 
         if ExpiringCount > 0 then
             TelemetryHelper.LogExpiringCertificationsFound(ExpiringCount);
