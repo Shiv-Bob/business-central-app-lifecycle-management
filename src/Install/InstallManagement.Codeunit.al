@@ -4,18 +4,18 @@ codeunit 50100 "Install Management"
 
     trigger OnInstallAppPerCompany()
     var
-        Setup: Record "Certification Setup";
+        CertificationSetupRec: Record "Certification Setup";
         AppInfo: ModuleInfo;
         DemoDataSetup: Codeunit "Demo Data Setup";
         TelemetryHelper: Codeunit "Telemetry Helper";
     begin
-        Setup := Setup.GetSetup();
+        CertificationSetupRec := CertificationSetupRec.GetSetup();
 
         NavApp.GetCurrentModuleInfo(AppInfo);
-        Setup."App Version Installed" := Format(AppInfo.AppVersion);
-        Setup."Notifications Enabled" := true;
-        Setup."Initial Setup Done" := true;
-        Setup.Modify();
+        CertificationSetupRec."App Version Installed" := Format(AppInfo.AppVersion);
+        CertificationSetupRec."Notifications Enabled" := true;
+        CertificationSetupRec."Initial Setup Done" := true;
+        CertificationSetupRec.Modify();
 
         if GuiAllowed() then
             DemoDataSetup.CreateSampleCertifications();
